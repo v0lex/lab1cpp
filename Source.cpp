@@ -7,7 +7,7 @@
 #include<memory>
 #include<cmath>
 
-const int MODULE = 9001;
+const int MODULE = 1063;
 const int N = 1000;
 const int A = 3;
 const int C = 5;
@@ -101,7 +101,7 @@ int main() {
 std::vector<int> congruent(int x,int size, int d) {
 	std::vector<int> res{ x };
 	for (int i = 1; i < size; ++i) {
-		x = (d * x * x + A * x + C) % 101;
+		x = (d * x * x + A * x + C) % MODULE;
 		std::cout << x << std::endl;
 		res.push_back(x);
 	}
