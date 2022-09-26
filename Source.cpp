@@ -7,7 +7,7 @@
 #include<memory>
 #include<cmath>
 
-const int MODULE = 1063;
+const int MODULE = 9001;
 const int N = 1000;
 const int A = 3;
 const int C = 5;
@@ -51,7 +51,7 @@ int main() {
 			break;
 		}
 		case 2: {
-			printHistogram(getRanges(), frequencyForRanges(getRanges(), transformVector(congruent(2,N, MODULE))));
+			printHistogram(getRanges(), frequencyForRanges(getRanges(), transformVector(congruent(2,N, 17))));
 			break;
 		}
 		case 3: {
@@ -102,7 +102,6 @@ std::vector<int> congruent(int x,int size, int d) {
 	std::vector<int> res{ x };
 	for (int i = 1; i < size; ++i) {
 		x = (d * x * x + A * x + C) % MODULE;
-		std::cout << x << std::endl;
 		res.push_back(x);
 	}
 	return res;
@@ -125,7 +124,7 @@ int findReverse(int num) {
 }
 
 std::vector<int> reverseCongruent(int x, int size) {
-	std::vector<int> res{ x };
+	std::vector<int> res{ x % MODULE };
 	for (int i = 1; i < size; ++i) {
 		x = (A*findReverse(x)+C) % MODULE;
 		res.push_back(x);
